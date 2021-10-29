@@ -108,7 +108,7 @@ ujson==1.35
 urllib3==1.26.7
 virtualenv==20.7.2
 webencodings==0.5.1
-Werkzeug>=3.6
+Werkzeug==2.0.2
 wrapt==1.12.1
 yapf==0.31.0
 yarg==0.1.9
