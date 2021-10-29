@@ -9,10 +9,11 @@ CacheControl==0.12.6
 cachetools==4.2.2
 cachy==0.3.0
 cffi==1.14.6
+certifi>=2017.4.17
 chardet==4.0.0
-charset-normalizer @ file:///home/runner/.cache/pypoetry/artifacts/23/43/96/9c5bffd9765f723eb96925cec608e36125667e8f31b6b3152f0b51716f/charset_normalizer-2.0.7-py3-none-any.whl
+charset-normalizer>=3.5.0
 cleo==0.8.1
-click @ file:///home/runner/.cache/pypoetry/artifacts/3c/f6/a3/2262df8f5a6f3de5bbc78cc13803c60524c8384dce76661fdfe3df975f/click-8.0.3-py3-none-any.whl
+click>=7.1.2
 clikit==0.6.2
 crashtest==0.3.1
 cryptography==3.4.8
@@ -22,7 +23,7 @@ debugpy==1.2.1
 distlib==0.3.2
 docopt==0.6.2
 filelock==3.0.12
-Flask @ file:///home/runner/.cache/pypoetry/artifacts/19/0a/5c/01c8f2563043757030137df198eec84b501545c42c399d58cb1fc733b3/Flask-2.0.2-py3-none-any.whl
+Flask == 2.0.2
 funcsigs==1.0.2
 future==0.18.2
 gast==0.3.3
@@ -34,12 +35,12 @@ greenlet==1.1.1
 grpcio==1.40.0
 h5py==2.10.0
 html5lib==1.1
-idna @ file:///home/runner/.cache/pypoetry/artifacts/f7/09/c9/8e80952436ff87855ddff4891a35ecf913b2b5dc97911f02a070ff2b1f/idna-3.3-py3-none-any.whl
+idna>=3.5
 importlib-metadata==3.10.1
 itsdangerous==2.0.1
 jedi==0.15.2
 jeepney==0.7.1
-Jinja2 @ file:///home/runner/.cache/pypoetry/artifacts/bc/7e/94/a305d7942db6684c4e372c6d8c89d1df206e8c88517a7b5b0dffbbf29e/Jinja2-3.0.2-py3-none-any.whl
+Jinja2 >=3.0
 joblib==1.0.1
 Keras-Preprocessing==1.1.2
 keyring==21.8.0
@@ -76,7 +77,7 @@ pylev==1.4.0
 PyOpenGL==3.1.5
 pyparsing==2.4.7
 pyquil==1.9.0
-pyTelegramBotAPI @ file:///home/runner/.cache/pypoetry/artifacts/b8/51/d7/4dcdb0f357b5db4e327669b8e915ea949d08797d13e1b85cce463dca88/pyTelegramBotAPI-4.1.1.tar.gz
+pyTelegramBotAPI>=4.1.1
 python-dateutil==2.8.2
 python-jsonrpc-server==0.3.2
 python-language-server==0.31.10
@@ -105,10 +106,10 @@ tomlkit==0.7.2
 tqdm==4.62.2
 typing-extensions==3.7.4.3
 ujson==1.35
-urllib3 @ file:///home/runner/.cache/pypoetry/artifacts/d8/12/e2/1b499db5e41e88fd0f31d0e056a4dc7b53824f63f027fffc1702969c57/urllib3-1.26.7-py2.py3-none-any.whl
+urllib3>=2.7
 virtualenv==20.7.2
 webencodings==0.5.1
-Werkzeug @ file:///home/runner/.cache/pypoetry/artifacts/15/3a/86/89704bd3f51d9796b98faa9cca15516723bdc7c61a85ecd9037cbd224a/Werkzeug-2.0.2-py3-none-any.whl
+Werkzeug>=3.6
 wrapt==1.12.1
 yapf==0.31.0
 yarg==0.1.9
