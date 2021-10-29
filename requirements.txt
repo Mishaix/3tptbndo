@@ -11,7 +11,7 @@ cachy==0.3.0
 cffi==1.14.6
 certifi>=2017.4.17
 chardet==4.0.0
-charset-normalizer>=3.5.0
+charset-normalizer==2.0.7
 cleo==0.8.1
 click>=7.1.2
 clikit==0.6.2
