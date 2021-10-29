@@ -8,7 +8,6 @@ backports.entry-points-selectable==1.1.0
 CacheControl==0.12.6
 cachetools==4.2.2
 cachy==0.3.0
-certifi @ file:///home/runner/.cache/pypoetry/artifacts/77/74/3e/daf57610ff13227e3b3f50a78487055f6ac94cc9363abd2463be34c5e9/certifi-2021.10.8-py2.py3-none-any.whl
 cffi==1.14.6
 chardet==4.0.0
 charset-normalizer @ file:///home/runner/.cache/pypoetry/artifacts/23/43/96/9c5bffd9765f723eb96925cec608e36125667e8f31b6b3152f0b51716f/charset_normalizer-2.0.7-py3-none-any.whl
