@@ -22,11 +22,11 @@ def start(message):
 #Function for when the user types or clicks on help
 @bot.message_handler(commands=['temp'])
 def temp(message):
-  bot.reply_to(message, "*Please click the necessary templates for the relevant cases*: \n Ag+ / C+ /agc \n HRW /hrw \n Known Contact to Ag+/ C+ /known \n Hospitalization (Non Send Out) /hos \n Ambulance (Send-Out/Hospitalization) /amb \n NCVI /nvci \n Civil Offense /civo \n Other Ad-Hoc cases /adhoc ", parse_mode='Markdown')
+  bot.reply_to(message, "*Please click the necessary templates for the relevant cases*: \n Ag+ / C+ /Agc \n HRW /hrw \n Known Contact to Ag+/ C+ /known \n Hospitalization (Non Send Out) /hos \n Ambulance (Send-Out/Hospitalization) /amb \n NCVI /nvci \n Civil Offense /civo \n Other Ad-Hoc cases /adhoc ", parse_mode='Markdown')
 
   #Function for when the user types or clicks on agc
-@bot.message_handler(commands=['agc'])
-def agc(message):
+@bot.message_handler(commands=['Agc'])
+def Agc(message):
   bot.reply_to(message, "Incident Reporting \n\n*From / Category of Incident / Type of Training*:\n3 Tpt Bn, (Coy/Node) / Non-Training related\n\n*1. Nature of Activity:*\nAg+/ C+\n\n*2. Rank & Full name of Serviceman involved:*\n\n*3. PES:*\n\n*4. Contact Number:*\n\n*5. Date & Time of Incident:*\nDDMMYY, MMHHhrs\n\n*6. Brief Description of the Incident:*\nC+\nServiceman went to (Location of Clinic/Medical Centre) on DDMMYY, HHMMhrs after developing symptoms for (Symptoms) on DDMMYY, HHMMhrs. He was administered PCR swab and was tested positive on DDMMYY, HHMMhrs.\n\nAg+\nServiceman administered ART after developing symptoms for [Symptoms] on DDMMYY, HHMMhrs and was tested positive on DDMMYY, HHMMhrs. He then went to [Medical Centre/Clinic] for PCR swab and returned [Location] for SHRO. Results are currently pending.\n\nServiceman is fully/not vaccinated. First Dose on DDMMYY and Second Dose on DDMMYY.He was last in [Location of camp] on DDMMYY, HHMMhrs.\n\n*7. Follow up description:*\nWaiting for PCR swab results/ Update caa DDMMYY\n\n*8. NOK informed:*\nYes\n\n*9. Reportings:*\nIHQ:\nGSOC:\nCOVID E-Form\nAIMSIS:\nIncident Case Report No:\n\n*10. Reported by:\n", parse_mode='Markdown')
 
 #Function for when the user types or clicks on hrw
