@@ -3,7 +3,7 @@ import telebot
 from flask import Flask, request
 
 
-rp = "blob:https://web.whatsapp.com/e9b0f730-97b1-4e30-b06f-d4c337322894"
+rp = "1.png"
 
 #API KEY
 my_secret = os.environ['API_KEY']
@@ -71,9 +71,9 @@ def cat1(message):
   bot.reply_to(message, "https://t.me/ArmyCAT1", parse_mode='Markdown')
 
 #Function for when the user types or clicks on cat1
-@bot.message_handler(commands=['cont'])
-def cont(message):
-  bot.reply_to(message, "NIL for now", parse_mode='Markdown')
+@bot.message_handler(commands=['doorp'])
+def doorp(message):
+  bot.send_photo(message, open(rp,'rp'))
 
 #Initiates the Bot
 #bot.polling()  
