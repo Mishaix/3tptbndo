@@ -17,7 +17,7 @@ server = Flask(__name__)
 #Function for when the bot is started on the user's end
 @bot.message_handler(commands=['start'])
 def start(message):
-  bot.reply_to(message, "Hello! I'm the virtual Telegram assistant for 3 TPT BN. Click on the topic will you like to retrieve info for.\n\nDOO Reporting Procedure: /doorp\nDOO IR Templates: /temp\nCAT 1 Status: /cat1\nContacts: /cont")
+  bot.reply_to(message, "Hello! I'm the virtual Telegram assistant for 3 TPT BN. Which information would you like me to retrieve?\n\nDOO Reporting Procedure: /doorp\nDOO IR Templates: /temp\nCAT 1 Status: /cat1\nContacts: /cont")
 
 #Function for when the user types or clicks on help
 @bot.message_handler(commands=['temp'])
