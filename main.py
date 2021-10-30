@@ -73,7 +73,7 @@ def cat1(message):
 #Function for when the user types or clicks on cat1
 @bot.message_handler(commands=['doorp'])
 def doorp(message):
-  bot.send_photo(message, 'https://github.com/Mishaix/3tptbndo/blob/main/1.png')
+  bot.send_photo(message.chat.id, 'https://github.com/Mishaix/3tptbndo/blob/main/1.png')
 
 #Initiates the Bot
 #bot.polling()  
