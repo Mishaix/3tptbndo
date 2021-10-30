@@ -17,7 +17,7 @@ server = Flask(__name__)
 #Function for when the bot is started on the user's end
 @bot.message_handler(commands=['start'])
 def start(message):
-  bot.reply_to(message, "Hello! I'm the virtual Telegram assistant for 3 TPT BN. Which information would you like me to retrieve?\n\nDOO Reporting Procedure: /doorp\nDOO IR Templates: /temp\nCAT 1 Status: /cat1\nContacts: /cont")
+  bot.reply_to(message, "Hello! I'm the virtual Telegram assistant for 3 TPT BN. Which information would you like me to retrieve?\n\nDOO Reporting Procedure: /doorp\nDOO IR Templates: /temp\nHelpful Links: /links\nContacts: /cont")
 
 #Function for when the user types or clicks on help
 @bot.message_handler(commands=['temp'])
@@ -65,10 +65,10 @@ def civo(message):
 def adhoc(message):
   bot.reply_to(message, "Incident Reporting \n\n*From / Category of Incident / Type of Training*:\n3 Tpt Bn, (Coy/Node) / Non-Training related\n\n*1. Nature of Activity:*\n\n*2. Rank & Full name of Serviceman involved:*\n\n*3. PES:*\n\n*4. Date & Time of Incident:*\nDDMMYY, HHMMhrs\n\n*5. Brief Description of the Incident:*\n\n*6. Follow up description:*\nInitial Reporting/ Update caa DDMMYY\n\n*7. NOK informed:*\nYes\n\n*8. Reportings:*\nGSOC:\nIHQ:\nAIMSIS:\nIncident Case Report No:\n\n*9. Reported by:*\n", parse_mode='Markdown')
 
-#Function for when the user types or clicks on cat1
-@bot.message_handler(commands=['cat1'])
-def cat1(message):
-  bot.reply_to(message, "https://t.me/ArmyCAT1", parse_mode='Markdown')
+#Function for when the user types or clicks on links
+@bot.message_handler(commands=['links'])
+def links(message):
+  bot.reply_to(message, "*Cat 1 Status:*\nhttps://t.me/ArmyCAT1", parse_mode='Markdown')
 
 #Function for when the user types or clicks on cat1
 @bot.message_handler(commands=['doorp'])
