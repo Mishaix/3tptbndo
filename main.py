@@ -78,7 +78,7 @@ def doorp(message):
 #Function for when the user types or clicks on links
 @bot.message_handler(commands=['cont'])
 def cont(message):
-  bot.reply_to(message, "*3 TPT DOO Phone*: 89408249 \n*SBC Guardroom*: 67964358\n*SBMC*: 67964402\n*IHQ*: 63074506\n*GSOC*: 67684844\n*CTN*: 65444567\n*TTN*: 68642909\n*CLN*: 65597877", parse_mode='Markdown')
+  bot.reply_to(message, "*3 TPT Ops Room*: 67494444\n*3 TPT DOO Phone*: 89408249 \n*SBC Guardroom*: 67964358\n*SBMC*: 67964402\n*IHQ*: 63074506\n*GSOC*: 67684844\n*CTN*: 65444567\n*TTN*: 68642909\n*CLN*: 65597877", parse_mode='Markdown')
 
 
 
