@@ -83,7 +83,8 @@ def cont(message):
 #Function for when the user types or clicks on links
 @bot.message_handler(commands=['test'])
 def test(message):
-  bot.reply_to(message, "*3 TPT Ops Room*: %2b6596976565", parse_mode='Markdown')
+  n1: 96976565
+  bot.reply_to(message, message.n1, parse_mode='Markdown')
 
 #Initiates the Bot
 #bot.polling()  
