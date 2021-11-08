@@ -84,7 +84,7 @@ def cont(message):
 @bot.message_handler(commands=['test'])
 def test(message):
   n1: 96976565
-  bot.reply_to(message, message.n1, parse_mode='Markdown')
+  bot.reply_to(message, test.n1, parse_mode='Markdown')
 
 #Initiates the Bot
 #bot.polling()  
