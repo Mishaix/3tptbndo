@@ -17,7 +17,7 @@ server = Flask(__name__)
 #Function for when the bot is started on the user's end
 @bot.message_handler(commands=['start'])
 def start(message):
-  bot.reply_to(message, "Hello! I'm the virtual Telegram assistant for 3 TPT BN. Which information would you like me to retrieve?\n\nDOO Reporting Procedure: /doorp\nDOO IR Templates: /temp\nContacts: /cont\nHelpful Links: /links")
+  bot.reply_to(message, "Hello! I'm the virtual Telegram assistant for 3 TPT BN. Which information would you like me to retrieve?\n\nDOO Reporting Procedure: /doorp\nDOO IR Templates: /temp\nAg+/C+ Management: /man\nContacts: /cont\nHelpful Links: /links")
 
 #Function for when the user types or clicks on help
 @bot.message_handler(commands=['temp'])
@@ -81,10 +81,9 @@ def cont(message):
   bot.reply_to(message, "*3 TPT Ops Room*: 67494444\n*3 TPT DOO Phone*: 89408249 \n*SBC Guardroom*: 67964358\n*SBMC*: 67964402\n*IHQ*: 63074506\n*GSOC*: 67684844\n*CTN*: 65444567\n*TTN*: 68642909\n*CLN*: 65597877", parse_mode='Markdown')
 
 #Function for when the user types or clicks on links
-@bot.message_handler(commands=['test'])
-def test(message):
-  n1: 96976565
-  bot.reply_to(message, test.n1, parse_mode='Markdown')
+@bot.message_handler(commands=['man'])
+def man(message):
+  bot.send_photo(message.chat.id, open('2.png','rb'))
 
 #Initiates the Bot
 #bot.polling()  
