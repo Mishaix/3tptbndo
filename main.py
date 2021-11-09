@@ -70,17 +70,17 @@ def adhoc(message):
 def links(message):
   bot.reply_to(message, "*Cat 1 Status:*\nhttps://t.me/ArmyCAT1", parse_mode='Markdown')
 
-#Function for when the user types or clicks on cat1
+#Function for when the user types or clicks on doorp
 @bot.message_handler(commands=['doorp'])
 def doorp(message):
   bot.send_photo(message.chat.id, open('1.png','rb'))
 
-#Function for when the user types or clicks on links
+#Function for when the user types or clicks on cont
 @bot.message_handler(commands=['cont'])
 def cont(message):
   bot.reply_to(message, "*3 TPT Ops Room*: 67494444\n*3 TPT DOO Phone*: 89408249 \n*SBC Guardroom*: 67964358\n*SBMC*: 67964402\n*IHQ*: 63074506\n*GSOC*: 67684844\n*CTN*: 65444567\n*TTN*: 68642909\n*CLN*: 65597877", parse_mode='Markdown')
 
-#Function for when the user types or clicks on links
+#Function for when the user types or clicks on man
 @bot.message_handler(commands=['man'])
 def man(message):
   bot.send_photo(message.chat.id, open('2.png','rb'))
