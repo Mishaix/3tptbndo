@@ -17,9 +17,9 @@ blueops_dict = {}
 
 
 class Blueops:
-    def __init__(self):
-        self.date = None
-        self.time = None
+    def __init__(self,datE):
+        self.datE = datE
+        self.timE = None
         self.name = None
         self.contact = None
         self.location = None
