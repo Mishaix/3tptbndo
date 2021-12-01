@@ -11,6 +11,20 @@ my_secret = os.environ['API_KEY']
 #Variable to make it easier to call the bot's functions
 bot = telebot.TeleBot(my_secret)
 
+#Container to hold blueops's values
+blueops_dict = {}
+
+
+class Blueops:
+    def __init__(self, datE,timE):
+        self.date = datE
+        self.time = timE
+        self.name = None
+        self.contact = None
+        self.location = None
+        self.informe = None
+
+
 #init server with flask
 server = Flask(__name__)
 
@@ -85,8 +99,87 @@ def cont(message):
 def man(message):
   bot.send_photo(message.chat.id, open('2.png','rb'))
 
-#Initiates the Bot
-#bot.polling()  
+
+# Handle '/opsbluedagger'
+@bot.message_handler(commands=['opsbluedagger'])
+def opsbluedagger(message):
+    msg = bot.reply_to(message, 
+    "What is the date (DDMMYY)?")
+    bot.register_next_step_handler(msg, process_date_step)
+
+def process_date_step(message):
+    try:
+        chat_id = message.chat.id
+        datE = message.text
+        datE = Blueops(datE)
+        blueops_dict[chat_id] = datE
+        msg = bot.reply_to(message, 'What time will it be activating?')
+        bot.register_next_step_handler(msg, process_time_step)
+    except Exception as e:
+        bot.reply_to(message, 'Error')
+
+def process_time_step(message):
+    try:
+        chat_id = message.chat.id
+        timE = message.text
+        user = blueops_dict[chat_id]
+        user.timE = timE
+        msg = bot.reply_to(message, 'Who is the POC?')
+        bot.register_next_step_handler(msg, process_name_step)
+    except Exception as e:
+        bot.reply_to(message, 'Error')
+
+def process_name_step(message):
+    try:
+        chat_id = message.chat.id
+        name = message.text
+        user = blueops_dict[chat_id]
+        user.name = name
+        msg = bot.reply_to(message, 'What is his contact?')
+        bot.register_next_step_handler(msg, process_contact_step)
+    except Exception as e:
+        bot.reply_to(message, 'Error')
+
+def process_contact_step(message):
+    try:
+        chat_id = message.chat.id
+        contact = message.text
+        if not contact.isdigit():
+            msg = bot.reply_to(message, 'Enter the proper number')
+            bot.register_next_step_handler(msg, process_contact_step)
+            return
+        user = blueops_dict[chat_id]
+        user.contact = contact
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        markup.add('180SQN TO W PIER', 'W PIER TO 180SQN')
+        msg = bot.reply_to(message, 'Location: (Click 1)', reply_markup=markup)
+        bot.register_next_step_handler(msg, process_location_step)
+    except Exception as e:
+        bot.reply_to(message, 'oooops')
+
+def process_location_step(message):
+    try:
+        chat_id = message.chat.id
+        location = message.text
+        user = blueops_dict[chat_id]
+        if (location == u'180SQN TO W PIER') or (location == u'W PIER TO 180SQN'):
+            user.location = location
+        else:
+            raise Exception("Unknown location")
+        msg = bot.reply_to(message, 'What time was TTN informed?')
+        bot.register_next_step_handler(msg, process_informe_step)
+    except Exception as e:
+        bot.reply_to(message, 'Error')
+
+def process_informe_step(message):
+    try:
+        chat_id = message.chat.id
+        informe = message.text
+        user = blueops_dict[chat_id]
+        user.informe = informe
+        bot.send_message(chat_id, 'Ops Blue Dagger will be activated at:\n\n' + user.datE + ',' + user.timE+'\n\nPOC:'+ user.name+'\nHP:'+ str(user.contact)+'\nLocation:' + user.location+'\n\n Updated TTN @' + user.informe)
+    except Exception as e:
+        bot.reply_to(message, 'Error')
 
 
 # SERVER SIDE 
