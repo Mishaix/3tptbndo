@@ -1,5 +1,6 @@
 import os
 import telebot
+from telebot import types
 from flask import Flask, request
 
 
