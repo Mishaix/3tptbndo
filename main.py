@@ -32,7 +32,7 @@ server = Flask(__name__)
 #Function for when the bot is started on the user's end
 @bot.message_handler(commands=['start'])
 def start(message):
-  bot.reply_to(message, "Hello! I'm the virtual Telegram assistant for 3 TPT BN. Which information would you like me to retrieve?\n\nDOO Reporting Procedure: /doorp\nDOO IR Templates: /temp\nAg+ / C+ Management: /man\nContacts: /cont\nHelpful Links: /links")
+  bot.reply_to(message, "Hello! I'm the virtual Telegram assistant for 3 TPT BN. Which information would you like me to retrieve?\n\nDOO Reporting Procedure: /doorp\nDOO IR Templates: /temp\nAg+ / C+ Management: /man\nContacts: /cont\nHelpful Links: /links\nOps Blue Dagger: /obd")
 
 #Function for when the user types or clicks on help
 @bot.message_handler(commands=['temp'])
@@ -101,8 +101,8 @@ def man(message):
   bot.send_photo(message.chat.id, open('2.png','rb'))
 
 
-# Handle '/opsbluedagger'
-@bot.message_handler(commands=['opsbluedagger'])
+# Handle '/obd'
+@bot.message_handler(commands=['obd'])
 def opsbluedagger(message):
     msg = bot.reply_to(message, 
     "What is the date (DDMMYY)?")
@@ -146,7 +146,7 @@ def process_contact_step(message):
         chat_id = message.chat.id
         contact = message.text
         if not contact.isdigit():
-            msg = bot.reply_to(message, 'Enter the proper number')
+            msg = bot.reply_to(message, 'Enter the proper number without spacing')
             bot.register_next_step_handler(msg, process_contact_step)
             return
         user = blueops_dict[chat_id]
@@ -156,7 +156,7 @@ def process_contact_step(message):
         msg = bot.reply_to(message, 'Location: (Click 1)', reply_markup=markup)
         bot.register_next_step_handler(msg, process_location_step)
     except Exception as e:
-        bot.reply_to(message, 'oooops')
+        bot.reply_to(message, 'Error')
 
 def process_location_step(message):
     try:
@@ -178,7 +178,7 @@ def process_informe_step(message):
         informe = message.text
         user = blueops_dict[chat_id]
         user.informe = informe
-        bot.send_message(chat_id, 'Ops Blue Dagger will be activated at:\n\n' + user.datE + ',' + user.timE+'\n\nPOC:'+ user.name+'\nHP:'+ str(user.contact)+'\nLocation:' + user.location+'\n\n Updated TTN @' + user.informe)
+        bot.send_message(chat_id, 'Ops Blue Dagger will be activated at:\n\n' + user.datE + ',' + user.timE+'\n\nPOC:'+ user.name+'\nHP:'+ str(user.contact)+'\nLocation:' + user.location+'\n\nUpdated TTN @ ' + user.informe)
     except Exception as e:
         bot.reply_to(message, 'Error')
 
