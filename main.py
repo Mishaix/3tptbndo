@@ -110,18 +110,11 @@ def man(message):
 # Handle '/obd'
 @bot.message_handler(commands=['obd'])
 def opsbluedagger(message):
-    markup = types.InlineKeyboardMarkup()
-    str1= markup.row(types.InlineKeyboardButton(text=str(today),callback_data="1"))
-    str2= markup.row(types.InlineKeyboardButton(text=str(tomorrow),callback_data="2"))
-
-@bot.callback_query_handler(func=lambda call: True,)
-def callback_query(call, message):
-    message = 'You made a mistake'
-    if call.data == '1':
-        message = str(today)
-    elif call.data == '2':
-        message = str(tomorrow)
-    msg = bot.reply_to(message, "What is the date (DDMMYY)?")
+    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+    str1=markup.row(str(today))
+    str2=markup.row(str(tomorrow))
+    markup.add(str1,str2)
+    msg = bot.reply_to(message, "What is the date (DDMMYY)?", reply_markup= markup)
     bot.register_next_step_handler(msg, process_date_step)
 
 def process_date_step(message):
