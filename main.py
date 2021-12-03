@@ -116,7 +116,15 @@ def opsbluedagger(message):
     msg = bot.reply_to(message, "What is the date (DDMMYY)?", reply_markup=markup)
     bot.register_next_step_handler(msg, process_date_step)
 
-def process_date_step(message, func=lambda message: message.text == str(today)):
+@bot.callback_query_handler(func=lambda call: True)
+def callback_query(call):
+    if call.data == "1":
+        bot.answer_callback_query(call.id, "Answer is Yes")
+    elif call.data == "2":
+        bot.answer_callback_query(call.id, "Answer is No")
+
+@bot.message_handler(func=lambda message: True)
+def process_date_step(message):
     try:
         chat_id = message.chat.id
         datE = message.text
