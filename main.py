@@ -113,18 +113,16 @@ def opsbluedagger(message):
     markup = types.InlineKeyboardMarkup()
     str1= markup.row(types.InlineKeyboardButton(text=str(today),callback_data="1"))
     str2= markup.row(types.InlineKeyboardButton(text=str(tomorrow),callback_data="2"))
-    msg = bot.reply_to(message, "What is the date (DDMMYY)?", reply_markup=markup)
-    bot.register_next_step_handler(msg, process_date_step)
 
-@bot.callback_query_handler(func=lambda call: True)
-def callback_query(call):
-    bot.answer_callback_query(callback_query_id=call.id, text='Answer accepted!')
-    answer = 'You made a mistake'
+@bot.callback_query_handler(func=lambda call: True,)
+def callback_query(call, message):
+    message = 'You made a mistake'
     if call.data == '1':
-        answer = str(today)
+        message = str(today)
     elif call.data == '2':
-        answer = str(tomorrow)
-    bot.send_message(call.message.chat.id, answer)
+        message = str(tomorrow)
+    msg = bot.reply_to(message, "What is the date (DDMMYY)?")
+    bot.register_next_step_handler(msg, process_date_step)
 
 def process_date_step(message):
     try:
