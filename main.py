@@ -190,7 +190,7 @@ def process_informe_step(message):
         informe = message.text
         user = blueops_dict[chat_id]
         user.informe = informe
-        bot.send_message(chat_id, 'Ops Blue Dagger will be activated at:\n\n' + user.datE + ',' + user.timE+'\n\nPOC:'+ user.name+'\nHP:'+ str(user.contact)+'\nLocation:' + user.location+'\n\nUpdated TTN @ ' + user.informe)
+        bot.send_message(chat_id, 'Ops Blue Dagger will be activated at:\n\n' + user.datE + ',' + user.timE+' hrs\n\nPOC:'+ user.name+'\nHP:'+ str(user.contact)+'\nLocation:' + user.location+'\n\nUpdated TTN @ ' + user.informe+" hrs")
     except Exception as e:
         bot.reply_to(message, 'Error')
 
