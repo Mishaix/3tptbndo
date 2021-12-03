@@ -110,12 +110,11 @@ def man(message):
 @bot.message_handler(commands=['obd'])
 def opsbluedagger(message):
     markup = types.InlineKeyboardMarkup()
-    markup.row(types.InlineKeyboardButton(text=str(today),callback_data="1"))
-    markup.row(types.InlineKeyboardButton(text=str(tomorrow),callback_data="2"))
+    markup.add(str(today), str(tomorrow))
     msg = bot.reply_to(message, "What is the date (DDMMYY)?", reply_markup=markup)
     bot.register_next_step_handler(msg, process_date_step)
 
-def process_date_step(message):
+def process_date_step(message, func=lambda message: message.text):
     try:
         chat_id = message.chat.id
         datE = message.text
