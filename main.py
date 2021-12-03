@@ -108,8 +108,9 @@ def man(message):
 # Handle '/obd'
 @bot.message_handler(commands=['obd'])
 def opsbluedagger(message):
-    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
-    markup.add(str(today), str(tomorrow))
+    markup = types.InlineKeyboardMarkup()
+    markup.row(types.InlineKeyboardButton(text=str(today)))
+    markup.row(types.InlineKeyboardButton(text=str(tomorrow)))
     msg = bot.reply_to(message, "What is the date (DDMMYY)?", reply_markup=markup)
     bot.register_next_step_handler(msg, process_date_step)
 
@@ -119,8 +120,6 @@ def process_date_step(message):
         datE = message.text
         datE = Blueops(datE)
         blueops_dict[chat_id] = datE
-        if (datE == u'180SQN TO W PIER') or (datE == u'W PIER TO 180SQN'):
-            datE.datE = datE
         msg = bot.reply_to(message, 'What time will it be activating?')
         bot.register_next_step_handler(msg, process_time_step)
     except Exception as e:
