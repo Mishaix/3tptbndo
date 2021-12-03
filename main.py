@@ -118,12 +118,14 @@ def opsbluedagger(message):
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
-    if call.data == "1":
-        bot.answer_callback_query(call.id, "Answer is Yes")
-    elif call.data == "2":
-        bot.answer_callback_query(call.id, "Answer is No")
+    bot.answer_callback_query(callback_query_id=call.id, text='Answer accepted!')
+    answer = 'You made a mistake'
+    if call.data == '1':
+        answer = str(today)
+    elif call.data == '2':
+        answer = str(tomorrow)
+    bot.send_message(call.message.chat.id, answer)
 
-@bot.message_handler(func=lambda message: True)
 def process_date_step(message):
     try:
         chat_id = message.chat.id
