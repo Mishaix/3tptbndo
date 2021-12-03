@@ -17,7 +17,7 @@ bot = telebot.TeleBot(my_secret)
 #Container to hold blueops's values
 blueops_dict = {}
 
-
+#Blueops Class
 class Blueops:
     def __init__(self,datE):
         self.datE = datE
@@ -27,6 +27,7 @@ class Blueops:
         self.location = None
         self.informe = None
 
+#Storing today and tomorrow's dates into values
 today = date.today().strftime("%d%m%y")
 tow= date.today() + timedelta(days=1)
 tomorrow = tow.strftime("%d%m%y")
@@ -112,7 +113,6 @@ def opsbluedagger(message):
     markup = types.InlineKeyboardMarkup()
     str1= markup.row(types.InlineKeyboardButton(text=str(today),callback_data="1"))
     str2= markup.row(types.InlineKeyboardButton(text=str(tomorrow),callback_data="2"))
-    markup.add(str1,str2)
     msg = bot.reply_to(message, "What is the date (DDMMYY)?", reply_markup=markup)
     bot.register_next_step_handler(msg, process_date_step)
 
