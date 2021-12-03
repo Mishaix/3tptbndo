@@ -2,6 +2,7 @@ import os
 import telebot
 from datetime import date,timedelta
 from telebot import types
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 from flask import Flask, request
 
 #Testing
@@ -109,8 +110,8 @@ def man(message):
 @bot.message_handler(commands=['obd'])
 def opsbluedagger(message):
     markup = types.InlineKeyboardMarkup()
-    markup.row(types.InlineKeyboardButton(text=str(today)))
-    markup.row(types.InlineKeyboardButton(text=str(tomorrow)))
+    markup.row(types.InlineKeyboardButton(text=str(today),callback_data="1"))
+    markup.row(types.InlineKeyboardButton(text=str(tomorrow),callback_data="2"))
     msg = bot.reply_to(message, "What is the date (DDMMYY)?", reply_markup=markup)
     bot.register_next_step_handler(msg, process_date_step)
 
