@@ -111,10 +111,8 @@ def man(message):
 @bot.message_handler(commands=['obd'])
 def opsbluedagger(message):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
-    str1=markup.row(str(today))
-    str2=markup.row(str(tomorrow))
-    markup.add(str1,str2)
-    msg = bot.reply_to(message, "What is the date (DDMMYY)?", reply_markup= markup)
+    markup.add(str(today),str(tomorrow))
+    msg = bot.reply_to(message, "What is the date (DDMMYY)?",reply_markup=markup)
     bot.register_next_step_handler(msg, process_date_step)
 
 def process_date_step(message):
