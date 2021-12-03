@@ -160,7 +160,6 @@ def process_contact_step(message):
            msg = bot.reply_to(message, 'Contact number is not more than 8!')
            bot.register_next_step_handle(msg, process_contact_step)
            return
-
         user = blueops_dict[chat_id]
         user.contact = contact
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
