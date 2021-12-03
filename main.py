@@ -1,5 +1,6 @@
 import os
 import telebot
+from datetime import date,timedelta
 from telebot import types
 from flask import Flask, request
 
@@ -25,6 +26,9 @@ class Blueops:
         self.location = None
         self.informe = None
 
+today = date.today().strftime("%d%m%y")
+tow= date.today() + timedelta(days=1)
+tomorrow = tow.strftime("%d%m%y")
 
 #init server with flask
 server = Flask(__name__)
@@ -104,8 +108,9 @@ def man(message):
 # Handle '/obd'
 @bot.message_handler(commands=['obd'])
 def opsbluedagger(message):
-    msg = bot.reply_to(message, 
-    "What is the date (DDMMYY)?")
+    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+    markup.add(str(today), str(tomorrow))
+    msg = bot.reply_to(message, "What is the date (DDMMYY)?", reply_markup=markup)
     bot.register_next_step_handler(msg, process_date_step)
 
 def process_date_step(message):
@@ -114,6 +119,8 @@ def process_date_step(message):
         datE = message.text
         datE = Blueops(datE)
         blueops_dict[chat_id] = datE
+        if (datE == u'180SQN TO W PIER') or (datE == u'W PIER TO 180SQN'):
+            datE.datE = datE
         msg = bot.reply_to(message, 'What time will it be activating?')
         bot.register_next_step_handler(msg, process_time_step)
     except Exception as e:
