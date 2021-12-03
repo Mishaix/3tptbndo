@@ -112,7 +112,7 @@ def man(message):
 def opsbluedagger(message):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     markup.add(str(today),str(tomorrow))
-    msg = bot.reply_to(message, "What is the date (DDMMYY)?",reply_markup=markup)
+    msg = bot.reply_to(message, "What is the date to activate?",reply_markup=markup)
     bot.register_next_step_handler(msg, process_date_step)
 
 def process_date_step(message):
