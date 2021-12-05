@@ -109,14 +109,6 @@ json = ["ujson"]
 redis = ["redis (>=3.4.1)"]
 
 [[package]]
-name = "pytz"
-version = "2021.3"
-description = "World timezone definitions, modern and historical"
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "requests"
 version = "2.26.0"
 description = "Python HTTP for Humans."
@@ -161,7 +153,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "2ebf2474b373fc0875174d5b0136f40316fca092401511dd9f6addda22078d9e"
+content-hash = "ad1e6c8a5eae7a5801f6dc1e7017fca14846fcf07b236eb706353d86ab320456"
 
 [metadata.files]
 certifi = [
@@ -269,10 +261,6 @@ markupsafe = [
 ]
 pytelegrambotapi = [
     {file = "pyTelegramBotAPI-4.1.1.tar.gz", hash = "sha256:cc8011ca05301653f2e5c2d02eadff0e882b611841a76f9e5b911994899df49e"},
-]
-pytz = [
-    {file = "pytz-2021.3-py2.py3-none-any.whl", hash = "sha256:3672058bc3453457b622aab7a1c3bfd5ab0bdae451512f6cf25f64ed37f5b87c"},
-    {file = "pytz-2021.3.tar.gz", hash = "sha256:acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"},
 ]
 requests = [
     {file = "requests-2.26.0-py2.py3-none-any.whl", hash = "sha256:6c1246513ecd5ecd4528a0906f910e8f0f9c6b8ec72030dc9fd154dc1a6efd24"},

@@ -1,6 +1,5 @@
 import os
 import telebot
-import pytz
 from datetime import date,timedelta
 from telebot import types
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -36,10 +35,6 @@ tomorrow = tow.strftime("%d%m%y")
 #init server with flask
 server = Flask(__name__)
 
-#Function for when the bot is started on the user's end
-@bot.message_handler(commands=['test'])
-def start(message):
-  bot.reply_to(message, today)
 #Function for when the bot is started on the user's end
 @bot.message_handler(commands=['start'])
 def start(message):
