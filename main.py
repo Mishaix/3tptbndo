@@ -30,8 +30,8 @@ class Blueops:
 
 #Storing today and tomorrow's dates into values
 SGT = pytz.timezone('Asia/Singapore')
-today = date.today(SGT).strftime("%d%m%y")
-tow= date.today(SGT) + timedelta(days=1)
+today = date.today().strftime("%d%m%y")
+tow= date.today() + timedelta(days=1)
 tomorrow = tow.strftime("%d%m%y")
 
 #init server with flask
