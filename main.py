@@ -1,5 +1,6 @@
 import os
 import telebot
+import pytz
 from datetime import date,timedelta
 from telebot import types
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -28,13 +29,18 @@ class Blueops:
         self.informe = None
 
 #Storing today and tomorrow's dates into values
-today = date.today().strftime("%d%m%y")
-tow= date.today() + timedelta(days=1)
+SGT = pytz.timezone('Asia/Singapore')
+today = date.today(SGT).strftime("%d%m%y")
+tow= date.today(SGT) + timedelta(days=1)
 tomorrow = tow.strftime("%d%m%y")
 
 #init server with flask
 server = Flask(__name__)
 
+#Function for when the bot is started on the user's end
+@bot.message_handler(commands=['test'])
+def start(message):
+  bot.reply_to(message, today)
 #Function for when the bot is started on the user's end
 @bot.message_handler(commands=['start'])
 def start(message):
