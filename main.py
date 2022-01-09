@@ -6,7 +6,7 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 from flask import Flask, request
 
 #Testing
-rp = "1.png"
+rp = "3.png"
 
 #API KEY
 my_secret = os.environ['API_KEY']
@@ -94,7 +94,7 @@ def links(message):
 #Function for when the user types or clicks on doorp
 @bot.message_handler(commands=['doorp'])
 def doorp(message):
-  bot.send_photo(message.chat.id, open('1.png','rb'))
+  bot.send_photo(message.chat.id, open('3.png','rb'))
 
 #Function for when the user types or clicks on cont
 @bot.message_handler(commands=['cont'])
