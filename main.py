@@ -38,7 +38,7 @@ server = Flask(__name__)
 #Function for when the bot is started on the user's end
 @bot.message_handler(commands=['start'])
 def start(message):
-  bot.reply_to(message, "Hello! I'm the virtual Telegram assistant for 3 TPT BN. Which information would you like me to retrieve?\n\nDOO Reporting Procedure: /doorp\nDOO IR Templates: /temp\nAg+ / C+ Management: /man\nContacts: /cont\nHelpful Links: /links\nOps Blue Dagger: /obd")
+  bot.reply_to(message, "Hello! I'm the virtual Telegram assistant for 3 TPT BN. Which information would you like me to retrieve?\n\nDOO Reporting Procedure: /doorp\nDOO IR Templates: /temp\nContacts: /cont\nHelpful Links: /links\nOps Blue Dagger: /obd")
 
 #Function for when the user types or clicks on help
 @bot.message_handler(commands=['temp'])
@@ -53,7 +53,7 @@ def agc(message):
 #Function for when the user types or clicks on hrn
 @bot.message_handler(commands=['hrn'])
 def hrw(message):
-  bot.reply_to(message, "Incident Reporting \n\n*From / Category of Incident / Type of Training*:\n3 Tpt Bn, (Coy/Node) / Non-Training related\n\n*1. Nature of Activity:*\nHRW\n\n*2. Rank & Full name of Serviceman involved:*\n\n*3. PES:*\n\n*4. Date & Time of Incident:*\nDDMMYY, HHMMhrs\n\n*5. Brief Description of the Incident:*\nServiceman received a HRW text and was immediately placed on SHRO at (Residence/Camp) from DDMMYY to DDMMYY. Serviceman self-administered D0 ART on DDMMYY, HHMMhrs and tested (Result).\n\nServiceman is fully/not vaccinated. First Dose on DDMMYY, Second Dose on DDMMYY and Booster on DDMMYY.\n\n*6. Follow up description:*\nAwaiting D7 result on DDMMYY/ Update caa DDMMYY\n\n*7. NOK informed:*\nYes\n\n*8. Verbal Reportings:*\nIHQ:\nGSOC:\nCOVID E-Form\n\n*9. Reported by:*\n", parse_mode='Markdown')
+  bot.reply_to(message, "Incident Reporting \n\n*From Unit, Coy/Node:*:\n(Unit), (Coy/Node)\n\n*a. Nature of Activity:*\nHousehold/Non-Household KC (DDMMYY), HRN (DDMMYY)\n\n*b. Brief Description of the Incident:*\nServiceman was a known contact to his/her (Known contact) that was tested (SA-ART Ag+/HA-ART Ag+/PCR+) on DDMMYY, HHMMhrs. Serviceman did D1 SA-ART on DDMMYY, HHMMhrs and tested (Result). \n\n Serviceman was last in (Camp) on (DDMMYY, HHMMhrs).\n\nFollow up report:\nServiceman was issued a HRN from DDMMYY to DDMMYY.*c. Unit Follow Up Actions:*\nAwaiting D5 ART on (DDMMYY)\n\n—————————————\n*Incident Reporting:*\n\n1.Type of Service:\n2. Rank:\n3. Unit:\n4. Name:\n5. Status: Household/Non-Household KC, SA-ART Ag- (DDMMYY), HRN (DDMMYY)\n6. Personnel Camp Location:\n7. Swab Location:\n8. Swab Result Date: DD/MM/YYYY\n9. Swab Result Time: HHMMhrs\n10. Follow up Swab Date: DD/MM/YYYY\n11. Incident Date: DD/MM/YYYY (KC), DD/MM/YYYY (HRN)\n12. Incident Time/Time of info received: HHMMhrs\n13. Quarantine/MC Start: DD/MM/YYYY\n14. Quarantine Location: \n15. SAF Close Contact:\n16. Date of Contact: \n17. Vaccination completed? Yes/No\n18. 2nd Vaccination & Booster Date\nDD/MM/YYYY, DD/MM/YYYY\n19. Last Date in Camp: DD/MM/YYYY, HHMMhrs\n20. Symptoms: \n\nIHQ:\nGSOC:\nCOVID E-Form\n ", parse_mode='Markdown')
 
 #Function for when the user types or clicks on known
 @bot.message_handler(commands=['known'])
@@ -101,10 +101,11 @@ def doorp(message):
 def cont(message):
   bot.reply_to(message, "*3 TPT Ops Room*: 67494444\n*3 TPT DOO Phone*: 89408249 \n*SBC Guardroom*: 67964358\n*SBMC*: 67964402\n*IHQ*: 63074506\n*GSOC*: 67684844\n*CTN*: 65444567\n*TTN*: 68642909\n*CLN*: 65597877", parse_mode='Markdown')
 
+  #deprecated function #IGNORE
 #Function for when the user types or clicks on man
-@bot.message_handler(commands=['man'])
-def man(message):
-  bot.send_photo(message.chat.id, open('2.png','rb'))
+#@bot.message_handler(commands=['man'])
+#def man(message):
+  #bot.send_photo(message.chat.id, open('2.png','rb'))
 
 
 # Handle '/obd'
